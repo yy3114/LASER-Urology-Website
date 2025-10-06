@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泌尿科雷射技術與原理總覽</title>
+    <!-- 載入 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 基礎樣式 */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', 'Microsoft JhengHei', 'sans-serif';
+            background-color: #f7f9fb;
+        }
+        /* 標籤內容控制 */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        /* 圖解樣式 */
+        .diagram-box {
+            border: 2px solid #6366f1; /* Indigo-500 */
+            background-color: #f0f3ff; /* Indigo-50 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .arrow {
+            fill: none;
+            stroke: #1e3a8a; /* Indigo-900 */
+            stroke-width: 3;
+            marker-end: url(#arrowhead);
+        }
+        /* 定義SVG箭頭標記 */
+        #arrowhead {
+            fill: #1e3a8a;
+        }
+        .graph-label {
+            font-weight: 600;
+            fill: #4b5563; /* Gray-600 */
+        }
+        /* 移除原先的滾動和最小寬度樣式，讓 Grid 系統控制 */
+        #laser-tabs {
+            white-space: normal;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+
+    <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl overflow-hidden">
+        
+        <!-- 標題區塊 (已修改為兩行置中) -->
+        <header class="bg-indigo-700 p-6 text-white text-center">
+            <h1 class="text-3xl font-extrabold mb-0">泌尿科雷射技術與原理</h1>
+            <p class="text-indigo-200 text-xl font-bold mt-1 mb-3">總覽</p>
+            <p class="text-indigo-200 text-sm">物理特性、臨床應用、科普知識與圖解說明</p>
+        </header>
+
+        <!-- 互動式標籤導航 (已修改為兩行佈局) -->
+        <!-- 使用 grid grid-cols-2 在小螢幕上分兩欄 (3 行)；使用 md:grid-cols-3 在大螢幕上分三欄 (2 行) -->
+        <div class="grid grid-cols-2 md:grid-cols-3 border-b border-gray-200" id="laser-tabs">
+            <button data-target="holmium" class="tab-btn p-3 sm:p-4 text-sm sm:text-base font-semibold text-center transition-all duration-300 hover:bg-indigo-50 border-b-4 border-transparent text-gray-600 active-tab">
+                鈥雷射 (Ho:YAG)
+            </button>
+            <button data-target="thulium" class="tab-btn p-3 sm:p-4 text-sm sm:text-base font-semibold text-center transition-all duration-300 hover:bg-indigo-50 border-b-4 border-transparent text-gray-600">
+                銩雷射 (Tm:YAG)
+            </button>
+            <button data-target="greenlight" class="tab-btn p-3 sm:p-4 text-sm sm:text-base font-semibold text-center transition-all duration-300 hover:bg-indigo-50 border-b-4 border-transparent text-gray-600">
+                綠光雷射 (KTP/LBO)
+            </button>
+            <button data-target="ndyag" class="tab-btn p-3 sm:p-4 text-sm sm:text-base font-semibold text-center transition-all duration-300 hover:bg-indigo-50 border-b-4 border-transparent text-gray-600">
+                雅格雷射 (Nd:YAG)
+            </button>
+             <button data-target="laser_science" class="tab-btn p-3 sm:p-4 text-sm sm:text-base font-semibold text-center transition-all duration-300 hover:bg-indigo-50 border-b-4 border-transparent text-gray-600">
+                雷射科普知識
+            </button>
+             <button data-target="laser_visualization" class="tab-btn p-3 sm:p-4 text-sm sm:text-base font-semibold text-center transition-all duration-300 hover:bg-indigo-50 border-b-4 border-transparent text-gray-600">
+                圖解與原理
+            </button>
+        </div>
+
+        <!-- 內容區塊 -->
+        <div class="p-4 sm:p-6 space-y-6">
+
+            <!-- 1. 鈥雷射 (Ho:YAG) 內容 -->
+            <div id="holmium" class="tab-content active bg-gray-50 p-4 rounded-lg shadow-inner">
+                <h2 class="text-2xl font-bold text-indigo-800 mb-4">鈥雷射 (Holmium:YAG)</h2>
+                
+                <section class="mb-5">
+                    <h3 class="text-lg font-semibold text-gray-700 border-l-4 border-indigo-500 pl-3 mb-2">物理原理 (Physical Principle)</h3>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>**波長 (Wavelength):** 2100 nm（紅外線）。</li>
+                        <li>**介質 (Medium):** 摻鈥的釔鋁石榴石晶體 (Ho:YAG)。</li>
+                        <li>**吸收特性:** 極易被**水**和水中的氫氧基 (hydroxyl group) 吸收。人體組織約 70% 為水，因此吸收效率高。</li>
+                    </ul>
+                </section>
+
+                <section class="mb-5">
+                    <h3 class="text-lg font-semibold text-gray-700 border-l-4 border-indigo-500 pl-3 mb-2">臨床生物效應 (Clinical Bio-Effect)</h3>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>**穿透深度 (Penetration):** 非常淺，約 0.3 mm 到 0.5 mm。</li>
+                        <li>**作用機制:** 產生極高熱能，瞬間使組織汽化或使結石破碎 (光熱效應)。</li>
+                        <li>**優勢:** 穿透深度淺，對周圍組織的熱傷害極小，安全邊際高。能有效汽化及切割軟組織，並有良好的凝固止血效果。</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3 class="text-lg font-semibold text-gray-700 border-l-4 border-indigo-500 pl-3 mb-2">主要泌尿科應用 (Urological Applications)</h3>
+                    <p class="text-gray-600">泌尿科應用最廣泛的雷射之一。</p>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1 font-medium">
+                        <li>**碎石術 (Lithotripsy):** 尤其是軟式輸尿管鏡下的腎臟/輸尿管結石碎石，效率極佳。</li>
+                        <li>**攝護腺剜除術 (HoLEP):** 利用其切割和凝固能力，將增生的攝護腺組織完整剝除。</li>
+                        <li>**軟組織切割/燒灼:** 膀胱或輸尿管狹窄、良性腫瘤切除。</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- 2. 銩雷射 (Tm:YAG) 內容 -->
+            <div id="thulium" class="tab-content bg-gray-50 p-4 rounded-lg shadow-inner">
+                <h2 class="text-2xl font-bold text-indigo-800 mb-4">銩雷射 (Thulium:YAG)</h2>
+                
+                <section class="mb-5">
+                    <h3 class="text-lg font-semibold text-gray-700 border-l-4 border-indigo-500 pl-3 mb-2">物理原理 (Physical Principle)</h3>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>**波長 (Wavelength):** 約 2013 nm（紅外線）。</li>
+                        <li>**介質 (Medium):** 摻銩的釔鋁石榴石晶體 (Tm:YAG)。</li>
+                        <li>**吸收特性:** 與鈥雷射相似，也極易被**水**吸收。通常以連續波 (Continuous Wave, CW) 模式或長脈衝模式運作。</li>
+                    </ul>
+                </section>
+
+                <section class="mb-5">
+                    <h3 class="text-lg font-semibold text-gray-700 border-l-4 border-indigo-500 pl-3 mb-2">臨床生物效應 (Clinical Bio-Effect)</h3>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>**穿透深度 (Penetration):** 非常淺，約 0.1 mm 到 0.2 mm (比鈥雷射更淺)。</li>
+                        <li>**作用機制:** 連續性汽化和切割。由於是連續波或長脈衝，可提供穩定且高速的組織切除，切割效率高。</li>
+                        <li>**優勢:** 穿透極淺，切割精準度高，能實現類似傳統電刀的「連續切割」效果，熱傷害範圍小，止血效果優於純切割。</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3 class="text-lg font-semibold text-gray-700 border-l-4 border-indigo-500 pl-3 mb-2">主要泌尿科應用 (Urological Applications)</h3>
+                    <p class="text-gray-600">主要用於攝護腺手術，近年也用於碎石。</p>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1 font-medium">
+                        <li>**攝護腺切除/剜除 (ThuLEP/ThuVAP):** 適用於良性攝護腺增生 (BPH) 的汽化或剜除。</li>
+                        <li>**碎石術 (Lithotripsy):** 雖然歷史上不如鈥雷射，但新一代高功率銩雷射在結石處理上也展現優勢。</li>
+                    </ul>
+                </section>
+            </div>
+            
+            <!-- 3. 綠光雷射 (KTP/LBO) 內容 -->
+            <div id="greenlight" class="tab-content bg-gray-50 p-4 rounded-lg shadow-inner">
+                <h2 class="text-2xl font-bold text-indigo-800 mb-4">綠光雷射 (KTP/LBO)</h2>
+                
+                <section class="mb-5">
+                    <h3 class="text-lg font-semibold text-gray-700 border-l-4 border-indigo-500 pl-3 mb-2">物理原理 (Physical Principle)</h3>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>**波長 (Wavelength):** 532 nm（綠光）。</li>
+                        <li>**介質 (Medium):** Nd:YAG 經倍頻晶體 (如 KTP 或 LBO) 轉換而來。</li>
+                        <li>**吸收特性:** 吸收特性與鈥、銩雷射截然不同，它主要被**血紅素 (Hemoglobin)** 大量吸收，而極少被水吸收。</li>
+                    </ul>
+                </section>
+
+                <section class="mb-5">
+                    <h3 class="text-lg font-semibold text-gray-700 border-l-4 border-indigo-500 pl-3 mb-2">臨床生物效應 (Clinical Bio-Effect)</h3>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>**穿透深度 (Penetration):** 中等，約 1 mm 到 2 mm。</li>
+                        <li>**作用機制:** **光選擇性汽化 (Photoselective Vaporization)。** 由於攝護腺增生組織富含血管，綠光雷射會被組織中的血紅素大量吸收，產生汽化作用。</li>
+                        <li>**優勢:** 極佳的**止血效果**，術中失血量極少。對心臟病或服用抗凝血劑的患者較為安全。</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3 class="text-lg font-semibold text-gray-700 border-l-4 border-indigo-500 pl-3 mb-2">主要泌尿科應用 (Urological Applications)</h3>
+                    <p class="text-gray-600">主要用於處理血管豐富的良性增生組織。</p>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1 font-medium">
+                        <li>**攝護腺光選擇性汽化術 (PVP):** 治療良性攝護腺增生 (BPH)。</li>
+                        <li>**止血:** 處理手術中的瀰漫性出血。</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- 4. 雅格雷射 (Nd:YAG) 內容 -->
+            <div id="ndyag" class="tab-content bg-gray-50 p-4 rounded-lg shadow-inner">
+                <h2 class="text-2xl font-bold text-indigo-800 mb-4">雅格雷射 (Neodymium:YAG)</h2>
+                
+                <section class="mb-5">
+                    <h3 class="text-lg font-semibold text-gray-700 border-l-4 border-indigo-500 pl-3 mb-2">物理原理 (Physical Principle)</h3>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>**波長 (Wavelength):** 1064 nm（近紅外線）。</li>
+                        <li>**介質 (Medium):** 摻釹的釔鋁石榴石晶體 (Nd:YAG)。</li>
+                        <li>**吸收特性:** 低度被水和血紅素吸收。穿透能力強，是所有雷射中穿透組織**最深**的。</li>
+                    </ul>
+                </section>
+
+                <section class="mb-5">
+                    <h3 class="text-lg font-semibold text-gray-700 border-l-4 border-indigo-500 pl-3 mb-2">臨床生物效應 (Clinical Bio-Effect)</h3>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>**穿透深度 (Penetration):** 深 (數毫米)。</li>
+                        <li>**作用機制:** 產生**深層凝固 (Deep Coagulation)** 和散熱。熱能在組織內廣泛擴散，造成大範圍的熱損傷和凝固壞死。</li>
+                        <li>**優勢:** 適用於需要深層加熱和凝固的治療，但由於精準度不如其他雷射，在軟組織切除方面已較少用於主流泌尿科手術。</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3 class="text-lg font-semibold text-gray-700 border-l-4 border-indigo-500 pl-3 mb-2">主要泌尿科應用 (Urological Applications)</h3>
+                    <p class="text-gray-600">現在較常作為輔助工具或用於特殊病灶。</p>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1 font-medium">
+                        <li>**腫瘤凝固 (Tumor Coagulation):** 用於膀胱或輸尿管內小型或表淺腫瘤的熱凝固。</li>
+                        <li>**接觸式凝固止血:** 利用其深穿透性進行凝固止血。</li>
+                    </ul>
+                </section>
+            </div>
+            
+            <!-- 5. 雷射科普知識 內容 -->
+            <div id="laser_science" class="tab-content bg-gray-50 p-4 rounded-lg shadow-inner">
+                <h2 class="text-2xl font-bold text-indigo-800 mb-4">雷射科普知識：光線的誕生與選擇</h2>
+                
+                <section class="mb-5">
+                    <h3 class="text-lg font-semibold text-gray-700 border-l-4 border-indigo-500 pl-3 mb-2">雷射是如何生產出來的？</h3>
+                    <p class="text-gray-600 mb-2">雷射 (LASER) 是 **L**ight **A**mplification by **S**timulated **E**mission of **R**adiation 的縮寫，意為「透過**受激輻射**光線放大」。它需要三個核心要素：</p>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>**增益介質 (Gain Medium):** 產生雷射的物質（固體晶體、氣體、液體或半導體）。</li>
+                        <li>**激發源 (Pumping Source):** 提供能量（如閃光燈或另一顆雷射）給介質中的原子，將它們提升到高能階。</li>
+                        <li>**共振腔 (Resonator):** 由兩片反射鏡組成，一片全反射，一片部分透射。光線在兩鏡間來回震盪，不斷放大，最終從部分透射鏡射出。</li>
+                    </ul>
+                    <p class="text-gray-600 mt-2 font-medium">關鍵的物理過程是**受激輻射**：當一個高能階的原子被一個光子擊中時，它會被「刺激」釋放出一個與入射光子一模一樣的光子（同波長、同相位、同方向），這就是光線被放大的原理。</p>
+                </section>
+
+                <section class="mb-5">
+                    <h3 class="text-lg font-semibold text-gray-700 border-l-4 border-indigo-500 pl-3 mb-2">雷射的材質 (增益介質)</h3>
+                    <p class="text-gray-600 mb-2">雷射的**波長**和**顏色**主要由其增益介質決定：</p>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>**固態晶體:** Nd:YAG（釹雅格）、Ho:YAG（鈥雅格）、Tm:YAG（銩雅格）。這是醫療上最常用的類型。</li>
+                        <li>**氣態雷射:** CO₂ 雷射（波長 10600 nm），常用於外科汽化。</li>
+                        <li>**半導體雷射 (Diode Laser):** 體積小、效率高，廣泛應用於光纖傳輸和低功率醫療設備。</li>
+                    </ul>
+                </section>
+
+                <section class="mb-5">
+                    <h3 class="text-lg font-semibold text-gray-700 border-l-4 border-indigo-500 pl-3 mb-2">如何選擇適當的波長以達到治療效果？</h3>
+                    <p class="text-gray-600 font-medium mb-2">這遵循**選擇性光熱分解作用 (Selective Photothermolysis)** 原理，關鍵是找到正確的「標的物」。</p>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>**目標標的物 (Chromophore):** 人體組織中會吸收特定波長光線的物質，例如：**水**、**血紅素**、**黑色素**。</li>
+                        <li>**泌尿科應用與波長選擇：**
+                            <ul class="list-circle pl-5 mt-1 space-y-1">
+                                <li>**切割/汽化（需高度吸水）：** 選擇 2000 nm 附近的波長（如 Ho:YAG、Tm:YAG），因為水對此波段光線吸收極高，能瞬間將組織氣化。</li>
+                                <li>**止血（需吸收血紅素）：** 選擇 532 nm（綠光），能高度被血管中的血紅素吸收，造成血管凝固。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="mb-5">
+                    <h3 class="text-lg font-semibold text-gray-700 border-l-4 border-indigo-500 pl-3 mb-2">如何造成不同顏色的光？</h3>
+                    <p class="text-gray-600 mb-2">雷射光的顏色由增益介質本身的**能階差**決定。但我們可以透過**頻率轉換**來產生新的顏色：</p>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>**基本波長:** Nd:YAG 的原始輸出波長是 1064 nm (近紅外線，肉眼不可見)。</li>
+                        <li>**倍頻 (Frequency Doubling):** 將 1064 nm 的紅外線通過一個特殊的**非線性晶體**（例如 KTP 晶體），晶體會將兩個 1064 nm 的光子結合，輸出一個能量加倍、波長減半的光子，即 532 nm (綠光)。</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3 class="text-lg font-semibold text-gray-700 border-l-4 border-indigo-500 pl-3 mb-2">雷射有專利嗎？</h3>
+                    <p class="text-gray-600 mb-2">**有，且專利是雷射產業的核心。**</p>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>**技術專利:** 從 1960 年發明第一台紅寶石雷射開始，幾乎所有新的雷射介質、結構設計和激發方式都有專利保護。</li>
+                        <li>**應用專利:** 許多醫療手術的特定**步驟**、**器械**或**參數設定**組合，也會被申請專利。例如，用於攝護腺剜除的 HoLEP 技術，其專門的手術器械和操作方法都曾涉及專利授權。</li>
+                        <li>**專利影響:** 專利制度保護了創新者的權益，但同時也使得高階醫療設備的價格高昂，並限制了市場上不同廠家之間的競爭方式。</li>
+                    </ul>
+                </section>
+            </div>
+            
+            <!-- 6. 雷射圖解與原理 內容 (Visualization Tab) - 已插入圖檔 -->
+            <div id="laser_visualization" class="tab-content bg-gray-50 p-4 rounded-lg shadow-inner">
+                 <h2 class="text-2xl font-bold text-indigo-800 mb-4">雷射圖解與原理</h2>
+                
+                <!-- 一、雷射生成三要素 (The LASER Principle) -->
+                <section class="mt-4 mb-8">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2 border-indigo-500">一、雷射生成與應用選擇</h3>
+                    <p class="text-gray-600 mb-6">雷射光（光線放大）的產生需要三個主要元件共同作用。</p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-between space-y-6 sm:space-y-0 sm:space-x-4">
+                        
+                        <!-- 激發源 -->
+                        <div class="flex flex-col items-center w-full sm:w-1/3">
+                            <div class="diagram-box p-4 rounded-lg h-32 flex items-center justify-center text-center font-bold text-lg">
+                                激發源 (Pumping Source)
+                                <span class="text-sm font-normal block mt-1">(提供能量)</span>
+                            </div>
+                            <p class="mt-2 text-sm text-gray-500">如閃光燈或半導體雷射</p>
+                        </div>
+                        
+                        <!-- 增益介質 -->
+                        <div class="flex flex-col items-center w-full sm:w-1/3">
+                            <svg width="60" height="30" viewBox="0 0 60 30" class="transform rotate-90 sm:rotate-0">
+                                <defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" /></marker></defs>
+                                <line x1="0" y1="15" x2="50" y2="15" class="arrow" />
+                            </svg>
+                            <div class="diagram-box p-4 rounded-lg h-32 flex items-center justify-center text-center font-bold text-lg">
+                                增益介質 (Gain Medium)
+                                <span class="text-sm font-normal block mt-1">(核心發光材料)</span>
+                            </div>
+                            <p class="mt-2 text-sm text-gray-500">如 Ho:YAG 晶體</p>
+                        </div>
+                        
+                        <!-- 共振腔 -->
+                        <div class="flex flex-col items-center w-full sm:w-1/3">
+                            <svg width="60" height="30" viewBox="0 0 60 30" class="transform rotate-90 sm:rotate-0">
+                                <line x1="0" y1="15" x2="50" y2="15" class="arrow" />
+                            </svg>
+                            <div class="diagram-box p-4 rounded-lg h-32 flex items-center justify-center text-center font-bold text-lg bg-green-100 border-green-700">
+                                共振腔與輸出
+                                <span class="text-sm font-normal block mt-1">(光線放大與射出)</span>
+                            </div>
+                            <p class="mt-2 text-sm text-gray-500">兩面反射鏡形成震盪</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 text-center">
+                        <p class="text-xl font-extrabold text-green-700 p-3 bg-green-100 inline-block rounded-full shadow-lg">
+                            → 結果：受激輻射產生一致性的「雷射光束」
+                        </p>
+                    </div>
+
+                    <!-- 插入使用者要求的圖表 (用於補強內容) -->
+                    <div class="mt-8 pt-6 border-t border-indigo-200">
+                        <h4 class="text-lg font-semibold text-gray-700 mb-3 border-l-4 border-indigo-500 pl-3">
+                            <span class="text-indigo-600">延伸閱讀：</span>光線特性與臨床應用關係
+                        </h4>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            雷射光束產生後，其波長決定了它在人體組織中會被何種標的物吸收，進而決定穿透深度和治療效果（汽化或凝固）。此圖顯示了不同波長 (X軸) 如何被水、血紅素等標的物 (Y軸) 吸收的差異：
+                        </p>
+                        <div class="flex justify-center p-4 bg-white rounded-lg shadow-md">
+                            <img 
+                                src="https://i.postimg.cc/GpTN1r6Y/image.png" 
+                                alt="Wavelength Absorption and Penetration Diagram" 
+                                class="max-w-full h-auto rounded-lg"
+                                onerror="this.onerror=null; this.src='https://placehold.co/700x350/E0E7FF/4338CA?text=圖像載入失敗：波長吸收與穿透圖'"
+                            >
+                        </div>
+                    </div>
+
+                </section>
+                
+                <!-- 二、選擇性光熱分解作用 (波長與標的物) -->
+                <section class="mt-10">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2 border-indigo-500">二、選擇性光熱分解作用 (波長與標的物)</h3>
+                    <p class="text-gray-600 mb-6">治療效果取決於雷射光被組織中特定標的物（Chromophore）吸收的效率。</p>
+
+                    <div class="p-4 bg-white rounded-lg border border-gray-200">
+                        <svg viewBox="0 0 700 350" class="w-full h-auto">
+                            <defs>
+                                <!-- 定義箭頭標記 -->
+                                <marker id="smallArrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto"><polygon points="0 0, 6 2, 0 4" fill="#374151" /></marker>
+                            </defs>
+
+                            <!-- X軸 (波長) -->
+                            <line x1="50" y1="300" x2="650" y2="300" stroke="#374151" stroke-width="2"/>
+                            <text x="670" y="305" class="graph-label text-sm">波長 (nm)</text>
+                            
+                            <!-- Y軸 (吸收率) -->
+                            <line x1="50" y1="300" x2="50" y2="50" stroke="#374151" stroke-width="2"/>
+                            <text x="5" y="45" transform="rotate(-90 5 45)" class="graph-label text-sm">吸收率</text>
+                            
+                            <!-- X軸標籤 -->
+                            <text x="50" y="320" class="text-xs">0</text>
+                            <text x="150" y="320" class="text-xs">500</text>
+                            <text x="250" y="320" class="text-xs">1000</text>
+                            <text x="350" y="320" class="text-xs">1500</text>
+                            <text x="450" y="320" class="text-xs">2000</text>
+                            <text x="550" y="320" class="text-xs">2500</text>
+                            <text x="650" y="320" class="text-xs">3000</text>
+
+                            <!-- 1. 血紅素吸收曲線 ( Hemoglobin - 532nm 綠光) -->
+                            <path d="M50 280 C150 200, 180 150, 200 100 L210 100 C250 150, 270 200, 300 280 L650 280" 
+                                fill="none" stroke="#ef4444" stroke-width="3" opacity="0.7"/>
+                            <text x="250" y="90" class="graph-label" fill="#dc2626">血紅素 (Hemoglobin)</text>
+                            
+                            <!-- 標註綠光 (532nm) -->
+                            <line x1="160" y1="300" x2="160" y2="120" stroke="#10b981" stroke-width="2" stroke-dasharray="4"/>
+                            <circle cx="160" cy="120" r="4" fill="#10b981"/>
+                            <text x="160" y="340" class="graph-label text-sm" fill="#059669" text-anchor="middle">532nm</text>
+                            <text x="160" y="100" class="text-xs font-bold" fill="#059669" text-anchor="middle">綠光 (止血)</text>
+                            
+                            <!-- 2. 水份吸收曲線 ( Water - 2100nm Ho:YAG/Tm:YAG) -->
+                            <path d="M50 290 C150 290, 300 290, 400 250 C420 200, 440 100, 460 70 C480 10, 500 70, 520 100 C550 200, 600 290, 650 290" 
+                                fill="none" stroke="#3b82f6" stroke-width="3" opacity="0.7"/>
+                            <text x="500" y="50" class="graph-label" fill="#2563eb">水 (Water)</text>
+
+                            <!-- 標註紅外線 (2100nm) -->
+                            <line x1="470" y1="300" x2="470" y2="90" stroke="#6366f1" stroke-width="2" stroke-dasharray="4"/>
+                            <circle cx="470" cy="90" r="4" fill="#6366f1"/>
+                            <text x="470" y="340" class="graph-label text-sm" fill="#4f46e5" text-anchor="middle">2100nm</text>
+                            <text x="470" y="70" class="text-xs font-bold" fill="#4f46e5" text-anchor="middle">鈥/銩雷射 (切割/汽化)</text>
+                        </svg>
+                    </div>
+                </section>
+
+                <!-- 總結與應用 -->
+                <section class="mt-8 p-4 bg-gray-100 rounded-lg">
+                    <h3 class="text-xl font-bold text-indigo-700 mb-3">圖解總結：波長決定應用</h3>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li>**高吸收水份 (2000-3000 nm):** 波長落在水吸收峰值附近 (如 2100 nm 的**鈥/銩雷射**)，能瞬間產生高熱能，用於**切割、汽化**組織或**碎石**。</li>
+                        <li>**高吸收血紅素 (532 nm):** 波長落在血紅素吸收峰值附近 (**綠光雷射**)，主要被血液吸收，產生凝固效應，用於**止血**。</li>
+                    </ul>
+                </section>
+
+            </div>
+
+        </div> <!-- End of Content -->
+
+    </div>
+
+    <footer class="mt-6 text-center text-sm text-gray-500">
+        <p>資料來源：醫學文獻與臨床應用原則，僅供學習參考。</p>
+    </footer>
+
+    <script>
+        // JavaScript 處理標籤切換
+        function setupTabs() {
+            const tabsContainer = document.getElementById('laser-tabs');
+            const tabButtons = tabsContainer.querySelectorAll('.tab-btn');
+            const contentDivs = document.querySelectorAll('.tab-content');
+
+            // 確保第一個標籤是預設啟用狀態
+            const defaultTarget = 'holmium'; 
+
+            tabButtons.forEach((button) => {
+                // 移除所有按鈕的啟用樣式
+                button.classList.remove('bg-indigo-100', 'text-indigo-700', 'border-indigo-500');
+                button.classList.add('text-gray-600', 'border-transparent');
+
+                // 隱藏所有內容
+                const targetId = button.getAttribute('data-target');
+                const targetContent = document.getElementById(targetId);
+                if (targetContent) {
+                     targetContent.classList.remove('active');
+                }
+
+                button.addEventListener('click', () => {
+                    const clickedTargetId = button.getAttribute('data-target');
+
+                    // 重設所有按鈕樣式
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('bg-indigo-100', 'text-indigo-700', 'border-indigo-500');
+                        btn.classList.add('text-gray-600', 'border-transparent');
+                    });
+
+                    // 為當前按鈕添加啟用樣式
+                    button.classList.add('bg-indigo-100', 'text-indigo-700', 'border-indigo-500');
+                    button.classList.remove('text-gray-600', 'border-transparent');
+
+                    // 隱藏所有內容
+                    contentDivs.forEach(content => {
+                        content.classList.remove('active');
+                    });
+
+                    // 顯示目標內容
+                    const targetContent = document.getElementById(clickedTargetId);
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+                });
+            });
+
+            // 設置預設啟動狀態 (Ho:YAG)
+            const defaultButton = document.querySelector(`.tab-btn[data-target="${defaultTarget}"]`);
+            const defaultContent = document.getElementById(defaultTarget);
+            
+            if (defaultButton && defaultContent) {
+                 defaultButton.classList.add('bg-indigo-100', 'text-indigo-700', 'border-indigo-500');
+                 defaultContent.classList.add('active');
+            }
+        }
+
+        window.onload = setupTabs;
+    </script>
+
+</body>
+</html>
+
